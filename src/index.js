@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom'
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router' // react-router v4/v5
 import { ConnectedRouter } from 'connected-react-router'
 import configureStore, { history } from './configureStore'
 // A THREE.js React renderer, see: https://github.com/drcmda/react-three-fiber
-import { Canvas, useThree } from 'react-three-fiber'
+import { Canvas } from 'react-three-fiber'
 // A React animation lib, see: https://github.com/react-spring/react-spring
-import { useSpring, a, animated, config } from 'react-spring/three'
+import { useSpring, animated, config } from 'react-spring/three'
 import './styles.css'
 import ShaderBackground from './components/ShaderBackground'
 import Effects from './components/Effects'
@@ -28,6 +28,8 @@ function Intro({ top, mouse }) {
   return (
     <>
       <Effects factor={0.8} />
+      <ambientLight />
+    <pointLight position={[150, 150, 150]} intensity={0.55} />
       <Text >
         RAD
       </Text>

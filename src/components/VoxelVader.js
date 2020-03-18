@@ -27,12 +27,22 @@ export const generateVoxel = ({colorPool, color, ambientColor, size, steps, padd
              }
              for (let j = 0; j < size; j += steps) {
                  for (let i = 0; i < size; i += steps) {
+                     let vaders = createVaderMesh(materials[0]);
+                     let vader2 = createVaderMesh(materials[0]);
                      let vadersBG = createVaderMesh(materials[1]);
                         vadersBG.position.set(i, j, 4);
                         vadersBG.visible = col[j][i];
                         vadersBG.vaderT = "bg";
+                        vaders.position.set(i, j, 5);
+                        vaders.visible = col[j][i];
+                        vaders.vaderT = "front";
+                        vader2.vaderT = "front";
+                        vader2.position.set(i, j, 6);
+                        vader2.visible = col[j][i];
                         obj.bg.add(vadersBG);
                         obj.vaderObj.add(vadersBG);
+                        obj.vaderObj.add(vaders);
+                        obj.vaderObj.add(vader2);
                  }
              }
              return obj.vaderObj;
@@ -111,6 +121,7 @@ export const generateVoxel = ({colorPool, color, ambientColor, size, steps, padd
              opacity: 0.3,
              transparent: true
          });
+         console.log('mergedGeoBG::', mergedGeoBG);
          groups.push(new THREE.Mesh(mergedGeoBG, materials[0]));
          groups[(groups.length - 1)].isGlowing = false;
          groups.push(new THREE.Mesh(mergedGeoBG, glowMaterial.clone()));
