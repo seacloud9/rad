@@ -121,7 +121,6 @@ export const generateVoxel = ({colorPool, color, ambientColor, size, steps, padd
              opacity: 0.3,
              transparent: true
          });
-         console.log('mergedGeoBG::', mergedGeoBG);
          groups.push(new THREE.Mesh(mergedGeoBG, materials[0]));
          groups[(groups.length - 1)].isGlowing = false;
          groups.push(new THREE.Mesh(mergedGeoBG, glowMaterial.clone()));

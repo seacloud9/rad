@@ -6,7 +6,7 @@ import VaporWave from '../shaders/VaporWave'
 function ShaderBackground({ color }) {
     const ref = useRef()
   const { viewport, size } = useThree()
-  let iResolution = new THREE.Vector2(0,0.7)
+  let iResolution = new THREE.Vector2(0,0.5);
   let time;
   useFrame(({clock}) => {
     time = clock.getElapsedTime();
@@ -14,7 +14,7 @@ function ShaderBackground({ color }) {
   })
   
   return (
-    <mesh ref={ref} scale={[viewport.width, viewport.height, 1]} position={[0,0,0]}>
+    <mesh ref={ref} scale={[viewport.width, viewport.height + 2, 1]} position={[0,0,0]}>
       <planeGeometry attach="geometry"  />
       <shaderMaterial
         attach="material"

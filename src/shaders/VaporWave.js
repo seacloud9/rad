@@ -114,14 +114,12 @@ const VaporWave = {
         float pct = abs(sin(time * 0.1));
         vec3 mixedBGColor = mix(bgColorB, bgColorA, pct);
         vec3 gridBgColorA = gridColor;
-        float val=0.;
         float sunHeight = sin(time*.1)*.1+.1;
     
       vec2 R = iResolution.xy,
       uv = ( fragCoord.xy - .5* R ) / R.y + .5;
-    
+      //uv = fragCoord.xy / iResolution.xy
       uv.y-=sunHeight;
-      uv.x+=val*.2;
     
         // sun
         float dist =2.5*length(uv-vec2(0.5,0.5));
@@ -144,7 +142,7 @@ const VaporWave = {
         c += glow * vec3(1.5, 0.3, (.2+ 1.0)) * 1.1;
         uv-=.5;
         uv.y+=sunHeight;
-      uv.y+=.18;
+      //uv.y+=.6;
       if(uv.y<0.1)
           
           

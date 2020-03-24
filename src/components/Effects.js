@@ -21,7 +21,7 @@ const Effects = React.memo(({ factor }) => {
     <effectComposer ref={composer} args={[gl]}>
       <renderPass attachArray="passes" scene={scene} camera={camera}  />
       <a.glitchPass attachArray="passes" renderToScreen factor={factor} />
-      <unrealBloomPass attachArray="passes" args={[aspect, 0.2, 1, 0]} />
+      <unrealBloomPass attachArray="passes" args={[aspect, 0.3, 1, 0]} />
     </effectComposer>
   )
 })

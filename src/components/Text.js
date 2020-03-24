@@ -12,7 +12,7 @@ function Text({ children, position, opacity, color = 'white', fontSize = 410 }) 
     const canvas = document.createElement('canvas')
     canvas.width = canvas.height = 2048
     const context = canvas.getContext('2d')
-    context.font = `${fontSize}px "ROAD RAGE"`
+    context.font = `${fontSize}px 'Bungee Inline', cursive`
     context.textAlign = 'center'
     context.textBaseline = 'middle'
     var grd = context.createLinearGradient(0,0,0,canvas.width);
